@@ -1,13 +1,12 @@
 # 前端程式設計 Homework 4
 ## b08207070
-***
 
 ### template: 
 [Slim - Free One-Page Fitness Website Template 2019 - Colorlib](https://colorlib.com/wp/template/slim/)
 
 ### HTML:
 1. 使用Font Awesome
->
+
 ```
 <i class="fas fa-graduation-cap"></i>
 <i class="fas fa-language"></i>
@@ -22,4 +21,4 @@
 
 2. 在**HOBBIES**的每個項目加入*Collapse*，使畫面更簡潔、更整齊
 3. 在**Activities**加入*Cards*
-4. 在**Home**的Contact me!按鈕加入*href*使其連結到ContactS
+4. 在**Home**的Contact me!按鈕加入*href*使其連結到**Contact**
