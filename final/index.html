@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- 引用 font-awesome ICON 的 CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+
+    <!-- 引用自已定義的CSS -->
+    <link rel="stylesheet" href="css/final.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!--Font-->
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa:600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Comfortaa', cursive;
+            font-size: 30px;
+        }
+    </style>
+
+
+    <title>Money Manager</title>
+</head>
+
+<body>
+    <div class="container">
+        <!-- 標題 -->
+        <div class="row" style="margin-top: 50px;">
+            <div class="col">
+                <div id="bgcolor" class="jumbotron" style="background-color: #ffd369; ">
+                    <h1 id="title1" class="display-4">Welcome to Money Manager!</h1>
+                    <hr class="my-4">
+                    <p id="title">My Money Manager</p>
+
+                    <!--Get Started-->
+                    <!-- 1 Button trigger modal -->
+                    <button id="gsbtn" type="button" class="btn btn-danger" data-toggle="modal" data-target="#getstartedModalCenter">Get Started! <i class="fab fa-font-awesome-flag"></i></button>
+
+                    <!-- 1 Modal -->
+                    <div class="modal fade" id="getstartedModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalCenterTitle">Add</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="alert alert-warning">
+                                            <!--Expenses-->
+                                            <div class="form-group mb-3 ">
+                                                <label for="excategory ">Expenses</label>
+                                            </div>
+                                            <!--
+                                            <div class="input-group mb-3 ">
+                                                <select class="custom-select " id="inputGroupSelect01 ">
+                                                    <option selected>Choose...</option>
+                                        
+                                                    <option value="01 ">Expenses</option>
+                                                    <option value="02 ">Income</option>
+                                                </select>
+                                            </div>
+                                        -->
+
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend ">
+                                                    <label class="input-group-text " for="excategory">Category</label>
+                                                </div>
+                                                <select class="custom-select " id="excategory">
+                                              <option value="00" selected>Choose...</option>                                            
+                                              <option value="01">Food</option>
+                                              <option value="02">Bills</option>
+                                              <option value="03">Tax</option>
+                                              <option value="04">Transportation</option>
+                                              <option value="05">Entertainment</option>
+                                              <option value="06">Sport</option>                                                                       
+                                              <option value="07">Pet</option>
+                                              <option value="08">Health</option>
+                                              <option value="09">Others</option>                                            
+                                            </select>
+                                            </div>
+
+                                            <div class="input-group mb-3 ">
+                                                <div class="input-group-prepend ">
+                                                    <label class="input-group-text " for="exmoney">$</label>
+                                                    <!--
+                                                    <span class="input-group-text ">$</span>
+                                                    <span class="input-group-text ">0.00</span>
+                                                -->
+
+                                                </div>
+                                                <input type="number" class="form-control" id="exmoney">
+                                            </div>
+                                            <!--
+                                            <div class="form-group form-check">
+                                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                            </div>
+                                            -->
+                                            <div class="input-group mb-3 ">
+                                                <div class="input-group-prepend ">
+                                                    <label class="input-group-text " for="exdate">Date</label>
+                                                    <!--
+                                                    <span class="input-group-text ">0.00</span>
+                                                -->
+                                                </div>
+                                                <input type="date" class="form-control " id="exdate" aria-label="date">
+                                            </div>
+
+                                            <button type="button" class="btn btn-outline-danger" id="exbtn">Submit</button>
+
+                                        </div>
+
+
+                                        <div class="alert alert-warning">
+                                            <!--Income-->
+                                            <div class="form-group mb-3">
+                                                <label for="incategory ">Income</label>
+                                            </div>
+
+                                            <div class="input-group mb-3 ">
+                                                <div class="input-group-prepend ">
+                                                    <label class="input-group-text " for="incategory">Category</label>
+                                                </div>
+                                                <select class="custom-select " id="incategory">
+                                              <option selected>Choose...</option>                                            
+                                              <option value="11 ">Salary</option>
+                                              <option value="12 ">Awards</option>
+                                              <option value="13 ">Grants</option>
+                                              <option value="14 ">Refunds</option>
+                                              <option value="15 ">Investments</option>
+                                              <option value="16 ">Lottery</option> 
+                                              <option value="17 ">Others</option>                                            
+                                            </select>
+                                            </div>
+
+                                            <div class="input-group mb-3 ">
+                                                <div class="input-group-prepend ">
+                                                    <label class="input-group-text " for="inmoney">$</label>
+                                                    <!--
+                                                    <span class="input-group-text ">0.00</span>
+                                                -->
+                                                </div>
+                                                <input type="number" class="form-control " id="inmoney" aria-label="Dollar amount (with dot and two decimal places) ">
+                                            </div>
+
+                                            <div class="input-group mb-3 ">
+                                                <div class="input-group-prepend ">
+                                                    <label class="input-group-text " for="indate">Date</label>
+                                                    <!--
+                                                    <span class="input-group-text ">0.00</span>
+                                                -->
+                                                </div>
+                                                <input type="date" class="form-control " id="indate" aria-label="date">
+                                            </div>
+
+                                            <button type="button" class="btn btn-outline-danger" id="inbtn">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <!--
+                                <div class=" modal-footer ">
+                                    <button type="button " class="btn btn-secondary " data-dismiss="modal">Close</button>
+                                    <button type="button " class="btn btn-primary ">Save changes</button>
+                                </div>
+                                -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2 Button trigger modal -->
+                    <button id="usbtn" type="button" class="btn btn-danger" data-toggle="modal" data-target="#setModalCenter">User Settings <i class="fas fa-cog"></i></button>
+
+                    <!-- 2 Modal -->
+                    <div class="modal fade " id="setModalCenter" tabindex="-1 " role="dialog " aria-labelledby="exampleModalCenterTitle " aria-hidden="true ">
+                        <div class="modal-dialog modal-dialog-centered " role="document ">
+                            <div class="modal-content ">
+                                <div class="modal-header ">
+                                    <h5 class="modal-title " id="setModalCenterTitle ">Settings</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true ">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body ">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">Username</span>
+                                        </div>
+                                        <input id="username" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                                        <button id="usernamebtn" type="button" class="btn btn-outline-danger" id="inbtn">Submit</button>
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">Theme</span>
+                                        </div>
+                                        <button type="button" class="btn btn-outline-danger" id="colorbtn">Click to change the theme!</button>
+                                    </div>
+                                    <div>
+
+                                    </div>
+
+
+
+                                </div>
+                                <!--
+                                <div class=" modal-footer ">
+                                    <button type="button " class="btn btn-secondary " data-dismiss="modal">Close</button>
+                                    <button type="button " class="btn btn-primary ">Save changes</button>
+                                </div>
+                                -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3 Button trigger modal -->
+                    <button id="hebtn" type="button" class="btn btn-danger" data-toggle="modal" data-target="#helpModalCenter">Help <i class="far fa-question-circle "></i></button>
+
+                    <!-- 3 Modal -->
+                    <div class="modal fade" id="helpModalCenter" tabindex="-1 " role="dialog " aria-labelledby="exampleModalCenterTitle " aria-hidden="true ">
+                        <div class="modal-dialog modal-dialog-centered " role="document ">
+                            <div class="modal-content ">
+                                <div class="modal-header ">
+                                    <h5 class="modal-title " id="exampleModalCenterTitle">Help</h5>
+                                    <button type="button " class="close " data-dismiss="modal" aria-label="Close ">
+                                        <span aria-hidden="true ">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body ">
+                                    <div class="alert alert-danger" role="alert">
+                                        <p style="font-size: 20px;"> - Click on <button id="gsbtn" type="button" class="btn btn-danger" data-toggle="modal" data-target="#getstartedModalCenter">Get Started! <i class="fab fa-font-awesome-flag"></i></button> to start tracking your expenses
+                                            and income!</p>
+                                    </div>
+                                    <div class="alert alert-danger" role="alert">
+                                        <p style="font-size: 20px;"> - Click on <button id="usbtn" type="button" class="btn btn-danger" data-toggle="modal" data-target="#setModalCenter">User Settings <i class="fas fa-cog"></i></button> to change username and the current theme!</p>
+                                    </div>
+                                    <div class="alert alert-danger" role="alert">
+                                        <p style="font-size: 20px;"> - The bar will show the ratio of total expenses to total income!</p style="font-size: 20px;">
+                                    </div>
+
+
+                                </div>
+                                <!--
+                                <div class=" modal-footer ">
+                                    <button type="button " class="btn btn-secondary " data-dismiss="modal">Close</button>
+                                    <button type="button " class="btn btn-primary ">Save changes</button>
+                                </div>
+                                -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin-top: 50px;">
+
+                        <div class="col-sm-6">
+                            <div class="card text-center text-white bg-info">
+                                <div class="card-header">
+                                    Total Expenses
+                                </div>
+                                <div class="card-body">
+                                    <input type="number" readonly class="form-control-plaintext text-center text-white" style="font-size: larger;" id="extotal">
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exdetails">View Details</button>
+
+
+                                </div>
+                            </div>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exdetails" tabindex="-1" role="dialog" aria-labelledby="exdetails" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body" style="color: black;">
+                                            <ul class="list-group list-group-flush" id="exdtbody">
+                                                <!--food-->
+                                                <div class="alert alert-info" role="alert">
+                                                    Food
+                                                    <hr>
+                                                    <ul id="food">
+
+                                                    </ul>
+
+                                                </div>
+                                                <!--bills-->
+                                                <div class="alert alert-danger" role="alert">
+                                                    Bills
+                                                    <hr>
+                                                    <ul id="bills">
+
+                                                    </ul>
+
+
+                                                    <!--                                                    
+                                                    <div class="alert alert-light alert-dismissible fade show" role="alert">
+                                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button> A simple secondary alert—check it out!
+                                                    </div>
+
+                                                    <div class="alert alert-light alert-dismissible fade show" role="alert">
+                                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button> A simple secondary alert—check it out!
+                                                    </div>
+                                                    -->
+
+                                                </div>
+
+                                                <!--Tax-->
+                                                <div class="alert alert-info" role="alert">
+                                                    Tax
+                                                    <hr>
+                                                    <ul id="tax">
+
+                                                    </ul>
+
+                                                </div>
+
+                                                <!--Transportation-->
+                                                <div class="alert alert-danger" role="alert">
+                                                    Transportation
+                                                    <hr>
+                                                    <ul id="transportation">
+
+                                                    </ul>
+
+                                                </div>
+
+                                                <!--Entertainment-->
+                                                <div class="alert alert-info" role="alert">
+                                                    Entertainment
+                                                    <hr>
+                                                    <ul id="entertainment">
+
+                                                    </ul>
+
+                                                </div>
+
+                                                <!--Sport-->
+                                                <div class="alert alert-danger" role="alert">
+                                                    Sport
+                                                    <hr>
+                                                    <ul id="sport">
+
+                                                    </ul>
+
+                                                </div>
+
+                                                <!--Pet-->
+                                                <div class="alert alert-info" role="alert">
+                                                    Pet
+                                                    <hr>
+                                                    <ul id="pet">
+
+                                                    </ul>
+
+                                                </div>
+
+                                                <!--Health-->
+                                                <div class="alert alert-danger" role="alert">
+                                                    Health
+                                                    <hr>
+                                                    <ul id="health">
+
+                                                    </ul>
+
+                                                </div>
+
+                                                <!--Others-->
+                                                <div class="alert alert-info" role="alert">
+                                                    Others
+                                                    <hr>
+                                                    <ul id="others">
+
+                                                    </ul>
+
+                                                </div>
+
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--
+                                <canvas id="exchart" height="600"></canvas>
+                            -->
+
+                        </div>
+
+
+                        <div class="col-sm-6">
+                            <div class="card text-center text-white bg-secondary">
+                                <div class="card-header">
+                                    Total Income
+                                </div>
+                                <div class="card-body">
+                                    <input type="number" readonly class="form-control-plaintext text-center text-white" style="font-size: larger;" id="intotal">
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-light" data-toggle="modal" data-target="#indetails">View Details</button>
+                                </div>
+                            </div>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="indetails" tabindex="-1" role="dialog" aria-labelledby="indetails" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body" style="color: black;">
+                                            <ul class="list-group list-group-flush" id="indtbody">
+                                                <!--food-->
+                                                <div class="alert alert-info" role="alert">
+                                                    Salary
+                                                    <hr>
+                                                    <ul id="salary">
+
+                                                    </ul>
+
+                                                </div>
+                                                <!--bills-->
+                                                <div class="alert alert-danger" role="alert">
+                                                    Awards
+                                                    <hr>
+                                                    <ul id="awards">
+
+                                                    </ul>
+
+                                                    <!--                                                    
+                                                    <div class="alert alert-light alert-dismissible fade show" role="alert">
+                                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button> A simple secondary alert—check it out!
+                                                    </div>
+
+                                                    <div class="alert alert-light alert-dismissible fade show" role="alert">
+                                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button> A simple secondary alert—check it out!
+                                                    </div>
+                                                    -->
+
+                                                </div>
+
+                                                <!--Tax-->
+                                                <div class="alert alert-info" role="alert">
+                                                    Grants
+                                                    <hr>
+                                                    <ul id="grants">
+
+                                                    </ul>
+
+                                                </div>
+
+                                                <!--Transportation-->
+                                                <div class="alert alert-danger" role="alert">
+                                                    Refunds
+                                                    <hr>
+                                                    <ul id="refunds">
+
+                                                    </ul>
+
+                                                </div>
+
+                                                <!--Entertainment-->
+                                                <div class="alert alert-info" role="alert">
+                                                    Investments
+                                                    <hr>
+                                                    <ul id="investments">
+
+                                                    </ul>
+
+                                                </div>
+
+                                                <!--Sport-->
+                                                <div class="alert alert-danger" role="alert">
+                                                    Lottery
+                                                    <hr>
+                                                    <ul id="lottery">
+
+                                                    </ul>
+
+                                                </div>
+
+                                                <!--Pet-->
+                                                <div class="alert alert-info" role="alert">
+                                                    Others
+                                                    <hr>
+                                                    <ul id="others">
+
+                                                    </ul>
+
+                                                </div>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--
+                                <canvas id="inchart" height="600"></canvas>
+                            -->
+
+                        </div>
+                    </div>
+
+                    <div class="progress" style="margin-top: 50px; height: 40px;">
+                        <div id="exprog" class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div id="inprog" class="progress-bar progress-bar-striped progress-bar-animated bg-secondary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+
+                    <!--                    
+                    <div class="progress" style="margin-top: 50px; height: 40px;">
+                        <div id="exprog" class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style="width: 50%" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div id="inprog " class="progress-bar progress-bar-striped progress-bar-animated bg-secondary" role="progressbar" style="width: 50%" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    -->
+
+
+
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!--
+
+    
+    <div class="row ">
+        <div class="col ">
+            <form>
+                <div class="form-group row ">
+                    <label for="total " class="col-sm-2 col-form-label ">總資金</label>
+                    <div class="col-sm-10 ">
+                        <input type="number " class="form-control " id="total " value="100000 " disabled>
+                    </div>
+                </div>
+                <div class="form-group row ">
+                    <label for="anteMoney " class="col-sm-2 col-form-label ">押注</label>
+                    <div class="col-sm-8 ">
+                        <input type="number " class="form-control " id="anteMoney " value="500 ">
+                    </div>
+                    <div class="col-sm-2 ">
+                        <button id="ante " type="button " class="btn btn-primary ">確定</button>
+                    </div>
+                </div>
+                <div class="form-group row ">
+                    <div class="col-sm-10 ">
+                        <button id="main " type="button " class="btn btn-primary " disabled>發牌</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    -->
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js " integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo " crossorigin="anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js "></script>
+    <!--chart.js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js " integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1 " crossorigin="anonymous "></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js " integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM " crossorigin="anonymous "></script>
+
+    <!-- 引用自己寫的 js -->
+    <script src="js/final.js "></script>
+    <!--<script src="js/pie.js "></script>-->
+
+
+</body>
+
+</html>
