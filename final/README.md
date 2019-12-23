@@ -25,15 +25,15 @@
 - 使用Font Awesome中的icon
     - **Get Started!**
     
-        <i class="fab fa-font-awesome-flag"></i>
+    <i class="fab fa-font-awesome-flag"></i>
         
     - **User Settings**
     
-        <i class="fas fa-cog"></i>
+    <i class="fas fa-cog"></i>
         
     - **Help** 
     
-        <i class="far fa-question-circle "></i>
+    <i class="far fa-question-circle "></i>
         
 - 使用Bootstrap中的 **Jumbotron**
 - 使用Bootstrap中的 **Modal** 
