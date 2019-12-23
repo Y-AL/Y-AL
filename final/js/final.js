@@ -16,12 +16,16 @@ $(() => {
     $('#colorbtn').on('click', () => {
         if (theme == 0) {
             $('#bgcolor').css({ "background-color": "#d6e5fa" })
+            $('#blncard').css({ "background-color": "#d6e5fa" })
+            $('#blncard').css({ "color": "#3c6f9c" })
                 //$('#bgcolor').css({ "background-color": "#ffc6c7" })
             $('#title1').css({ "color": "#3c6f9c" })
             $('#title').css({ "color": "#3c6f9c" })
             theme = 1
         } else if (theme == 1) {
             $('#bgcolor').css({ "background-color": "#ffd369" })
+            $('#blncard').css({ "background-color": "#ffd369" })
+            $('#blncard').css({ "color": "black" })
             $('#title1').css({ "color": "black" })
             $('#title').css({ "color": "black" })
             theme = 0
@@ -30,6 +34,7 @@ $(() => {
         $('#usbtn').toggleClass("btn-dark")
         $('#hebtn').toggleClass("btn-dark")
         $('#colorbtn').toggleClass("btn-outline-dark")
+        $('#usernamebtn').toggleClass("btn-outline-dark")
 
     })
 
@@ -65,8 +70,10 @@ $(() => {
 
         var exprogress = totalexpenses / (totalexpenses + totalincome) * 100
         $('#exprog').css({ "width": exprogress + "%" })
+        $('#exprog').html("<div>" + exprogress + " %</div>")
         $('#inprog').css({ "width": (100 - exprogress) + "%" })
-
+        $('#inprog').html("<div>" + (100 - exprogress) + " %</div>")
+        $('#bln').html("<p>Balance: " + (totalincome - totalexpenses) + "</p>")
 
 
         // 輸出
@@ -106,7 +113,11 @@ $(() => {
 
         var inprogress = totalincome / (totalincome + totalexpenses) * 100
         $('#inprog').css({ "width": inprogress + "%" })
+        $('#inprog').html("<div>" + inprogress + " %</div>")
         $('#exprog').css({ "width": (100 - inprogress) + "%" })
+        $('#exprog').html("<div>" + (100 - inprogress) + " %</div>")
+
+        $('#bln').html("<p>Balance: " + (totalincome - totalexpenses) + "</p>")
 
 
 
